@@ -1,3 +1,3 @@
 export function getNextRuntime(filename: string): "SERVER" | "CLIENT" {
-  return "SERVER";
+  throw new Error("getNextRuntime is not implemented yet");
 }
