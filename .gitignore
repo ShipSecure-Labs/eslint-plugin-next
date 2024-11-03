@@ -1,0 +1,4 @@
+dist/
+coverage/
+tsconfig.tsbuildinfo
+node_modules/
