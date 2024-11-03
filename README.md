@@ -1,5 +1,8 @@
 # @shipsecure/eslint-plugin-next
 
+> [!WARNING]  
+> This plugin is currently in beta and is not yet ready for production use.
+
 ## Overview
 
 `@shipsecure/eslint-plugin-next` is a custom ESLint plugin designed to enhance the security of Next.js applications by identifying potentially insecure patterns in code. This plugin offers a set of rules specifically tailored to prevent common security pitfalls in Next.js, encouraging best practices and securing your app's frontend and backend code.
