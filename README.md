@@ -21,31 +21,23 @@ npm install @shipsecure/eslint-plugin-next --save-dev
 
 ## Usage
 
-### Basic Configuration
+### Flat config (requires eslint >= v8.23.0)
 
-To start using the plugin in your Next.js project, add `@shipsecure/eslint-plugin-next` to your ESLint configuration file (e.g., `.eslintrc.js`):
+Add the following to your `eslint.config.js` file:
 
 ```javascript
-module.exports = {
-  extends: [
-    "eslint:recommended",
-    "plugin:@shipsecure/next/recommended", // Use the recommended configuration
-  ],
-  plugins: ["@shipsecure/next"],
-};
+const shipsecureNext = require("@shipsecure/eslint-plugin-next");
+
+module.exports = [shipsecureNext.configs.recommended];
 ```
 
-### Custom Configuration
+### eslintrc config (deprecated)
 
-If you want to enable or disable specific rules, add them to the rules section in your ESLint configuration:
+Add the following to your `.eslintrc` file:
 
 ```javascript
 module.exports = {
-  plugins: ["@shipsecure/next"],
-  rules: {
-    "@shipsecure/next/no-open-redirects": "error",
-    // Add other rules here
-  },
+  extends: ["plugin:shipsecure-next/recommended-legacy"],
 };
 ```
 
