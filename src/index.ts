@@ -26,6 +26,34 @@ const config = {
     "require-rel-noopener-noreferrer": requireRelNoopenerNoreferrer,
     "require-script-integrity": requireScriptIntegrity,
   },
+  configs: {},
 };
+
+const recommended = {
+  name: "shipsecure-next/recommended",
+  plugins: {
+    "shipsecure-next": config,
+  },
+  rules: {
+    "shipsecure-next/enforce-https": "warn",
+    "shipsecure-next/no-client-side-secrets": "warn",
+    "shipsecure-next/no-dangerously-set-inner-html": "error",
+    "shipsecure-next/no-eval": "error",
+    "shipsecure-next/no-inline-styles": "warn",
+    "shipsecure-next/no-open-redirects": "warn",
+    "shipsecure-next/require-rel-noopener-noreferrer": "warn",
+    "shipsecure-next/require-script-integrity": "warn",
+  },
+};
+
+const recommendedLegacy = {
+  plugins: ["shipsecure-next"],
+  rules: recommended.rules,
+};
+
+Object.assign(config.configs, {
+  recommended,
+  "recommended-legacy": recommendedLegacy,
+});
 
 export default config;
