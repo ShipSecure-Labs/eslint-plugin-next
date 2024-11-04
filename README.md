@@ -54,4 +54,4 @@ Contributions are welcome! If you'd like to add new rules, suggest enhancements,
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
