@@ -7,10 +7,19 @@
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "nextjs",
+    "security"
+  ],
   "author": "Simon Koeck <simon@koeck.dev> (https://simon.koeck.dev)",
   "license": "MIT",
   "homepage": "https://github.com/shipsecure-labs/eslint-plugin-next",
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
     "@types/eslint__js": "^8.42.3",
