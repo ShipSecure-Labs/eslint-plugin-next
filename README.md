@@ -37,7 +37,7 @@ Add the following to your `.eslintrc` file:
 
 ```javascript
 module.exports = {
-  extends: ["plugin:shipsecure-next/recommended-legacy"],
+  extends: ["plugin:@shipsecure/next/recommended-legacy"],
 };
 ```
 

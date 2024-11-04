@@ -9,11 +9,13 @@ import { rule as requireRelNoopenerNoreferrer } from "./rules/require-rel-noopen
 import { rule as requireScriptIntegrity } from "./rules/require-script-integrity";
 import { resolve } from "path";
 
-const packageJson = JSON.parse(readFileSync(resolve("./package.json"), "utf8"));
+const packageJson = JSON.parse(
+  readFileSync(resolve(__dirname, "../package.json"), "utf8")
+);
 
-const config = {
+const plugin = {
   meta: {
-    name: "shipsecure-next",
+    name: "@shipsecure/next",
     version: packageJson.version,
   },
   rules: {
@@ -29,31 +31,36 @@ const config = {
   configs: {},
 };
 
-const recommended = {
-  name: "shipsecure-next/recommended",
-  plugins: {
-    "shipsecure-next": config,
+Object.assign(plugin.configs, {
+  recommended: {
+    name: "@shipsecure/next/recommended",
+    plugins: {
+      "@shipsecure/next": plugin,
+    },
+    rules: {
+      "@shipsecure/next/enforce-https": "warn",
+      "@shipsecure/next/no-client-side-secrets": "warn",
+      "@shipsecure/next/no-dangerously-set-inner-html": "error",
+      "@shipsecure/next/no-eval": "error",
+      "@shipsecure/next/no-inline-styles": "warn",
+      "@shipsecure/next/no-open-redirects": "warn",
+      "@shipsecure/next/require-rel-noopener-noreferrer": "warn",
+      "@shipsecure/next/require-script-integrity": "warn",
+    },
   },
-  rules: {
-    "shipsecure-next/enforce-https": "warn",
-    "shipsecure-next/no-client-side-secrets": "warn",
-    "shipsecure-next/no-dangerously-set-inner-html": "error",
-    "shipsecure-next/no-eval": "error",
-    "shipsecure-next/no-inline-styles": "warn",
-    "shipsecure-next/no-open-redirects": "warn",
-    "shipsecure-next/require-rel-noopener-noreferrer": "warn",
-    "shipsecure-next/require-script-integrity": "warn",
+  "recommended-legacy": {
+    plugins: ["@shipsecure/next"],
+    rules: {
+      "@shipsecure/next/enforce-https": "warn",
+      "@shipsecure/next/no-client-side-secrets": "warn",
+      "@shipsecure/next/no-dangerously-set-inner-html": "error",
+      "@shipsecure/next/no-eval": "error",
+      "@shipsecure/next/no-inline-styles": "warn",
+      "@shipsecure/next/no-open-redirects": "warn",
+      "@shipsecure/next/require-rel-noopener-noreferrer": "warn",
+      "@shipsecure/next/require-script-integrity": "warn",
+    },
   },
-};
-
-const recommendedLegacy = {
-  plugins: ["shipsecure-next"],
-  rules: recommended.rules,
-};
-
-Object.assign(config.configs, {
-  recommended,
-  "recommended-legacy": recommendedLegacy,
 });
 
-export default config;
+module.exports = plugin;

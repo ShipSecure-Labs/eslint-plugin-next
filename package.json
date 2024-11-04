@@ -1,6 +1,6 @@
 {
   "name": "@shipsecure/eslint-plugin-next",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "Secure your Next.js applications with @shipsecure/eslint-plugin-next, an ESLint plugin designed to detect and prevent common security vulnerabilities.",
   "main": "dist/index.js",
   "scripts": {
